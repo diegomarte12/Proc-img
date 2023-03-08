@@ -28,9 +28,6 @@ fig, axs = plt.subplots(nrows=3, ncols=2, figsize=(8, 8))
 # Mostrar la imagen original
 axs[0][0].imshow(img, cmap="gray")
 axs[0][0].axis("off")
-
-# Mostrar el histograma de la imagen original
-axs[0][1].hist(img.ravel(), 256, [0, 256], color='gray')
 axs[0][1].set_title('Histograma de la imagen original')
 
 # Mostrar la imagen desplazada
