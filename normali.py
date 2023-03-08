@@ -2,7 +2,7 @@ import cv2
 from matplotlib import pyplot as plt
 
 # Leer la imagen y crear una copia
-img = cv2.imread('imgagen5.jpg', 0)
+img = cv2.imread('imagen5.jpg', 0)
 img2 = img.copy()
 
 # Reducción de la gama dinámica de la imagen
