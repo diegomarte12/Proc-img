@@ -19,7 +19,8 @@ img4 = cv2.flip(img, 1) #imagen invertida por eje vertical
 
 
 edge_kernel = np.array([[-1,-1,-1],[-1,8,-1],[-1,-1,-1]]) #crear edge_kernel
-img5 = cv2.filter2D(img, -1, edge_kernel)#aplicacion de bordes
+img5 = cv2.filter2D(img2, -1, edge_kernel)#aplicacion de bordes
+img5bord = cv2.copyMakeBorder(img5, superior, inferior, izquierdo, derecho, cv2.BORDER_CONSTANT, value=[255, 255, 255])
 
 # Creacion del plot 
 fig, axs = plt.subplots(nrows = 4, ncols = 2, figsize = (8, 8))
@@ -49,8 +50,8 @@ axs[2][1].set_title('Imagen invertida eje vertical')
 axs[3][0].imshow(img)
 axs[3][0].axis("off")
 
-axs[3][1].imshow(img5)
+axs[3][1].imshow(img5bord)
 axs[3][1].axis("off")
-axs[3][1].set_title('Imagen con deteccion de bordes')
+axs[3][1].set_title('Imagen reducida con deteccion de bordes')
 
 plt.show()
