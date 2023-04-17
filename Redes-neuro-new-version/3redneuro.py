@@ -36,7 +36,12 @@ etiquetas_imagenes = np.array(etiquetas_imagenes)
 
 modelo = tf.keras.Sequential([
     tf.keras.layers.Flatten(input_shape=(28, 28)), # Capa de entrada que aplana las imágenes de 28x28 píxeles a un vector de 784 elementos
-    tf.keras.layers.Dense(128*6, activation='relu'), # Capa oculta con 128 neuronas y función de activación ReLU
+    tf.keras.layers.Dense(2000, activation='relu'), # Capa oculta con 128 neuronas y función de activación ReLU
+    tf.keras.layers.Dense(1500, activation='relu'), # Capa oculta con 128 neuronas y función de activación ReLU
+    tf.keras.layers.Dense(1116, activation='relu'), # Capa oculta con 128 neuronas y función de activación ReLU
+
+
+
     #tf.keras.layers.Dense(128*5, activation='relu'), # Capa oculta con 128 neuronas y función de activación ReLU
 
 
@@ -52,7 +57,7 @@ modelo.compile(optimizer='adam',
               metrics=['accuracy'])
 
 # Ajustar el modelo a las imágenes de entrenamiento
-modelo.fit(imagenes, etiquetas_imagenes, epochs=50)
+modelo.fit(imagenes, etiquetas_imagenes, epochs=25)
 
 resultado = modelo.evaluate(imagenes, etiquetas_imagenes)
 print('Pérdida en el conjunto de prueba:', resultado[0])
